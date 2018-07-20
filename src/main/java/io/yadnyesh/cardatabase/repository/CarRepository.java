@@ -3,13 +3,14 @@ package io.yadnyesh.cardatabase.repository;
 import io.yadnyesh.cardatabase.model.Car;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
 /**
  * Created by yadnyesh on 19/7/18.
  */
-public interface CarRepository extends CrudRepository<Car, Long> {
+public interface CarRepository extends PagingAndSortingRepository<Car, Long> {
 
     List<Car> findByBrand(String brand);
 
