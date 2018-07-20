@@ -25,10 +25,10 @@ public class CardatabaseApplication {
 	@Bean
 	CommandLineRunner runner() {
 		return args -> {
-			carRepository.save(new Car("Ford", "Mustang", "Red", "ADF-1211", 2017, 29000));
-			carRepository.save(new Car("Nissan", "Leaf", "White", "SSJ-3001", 2014, 59000));
-			carRepository.save(new Car("Toyota", "Prius", "Silver", "TOT-2002", 2018, 19000));
-			carRepository.save(new Car("Maruti", "Dzire", "Blue", "GA0-8936", 2010, 49000));
+//			carRepository.save(new Car("Ford", "Mustang", "Red", "ADF-1211", 2017, 29000));
+//			carRepository.save(new Car("Nissan", "Leaf", "White", "SSJ-3001", 2014, 59000));
+//			carRepository.save(new Car("Toyota", "Prius", "Silver", "TOT-2002", 2018, 19000));
+//			carRepository.save(new Car("Maruti", "Dzire", "Blue", "GA0-8936", 2010, 49000));
 		};
 	}
 }
