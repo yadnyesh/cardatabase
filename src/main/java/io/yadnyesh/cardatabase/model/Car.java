@@ -1,6 +1,7 @@
 package io.yadnyesh.cardatabase.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by yadnyesh on 19/7/18.
@@ -18,11 +19,11 @@ public class Car {
     private int price;
     
     
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToMany(fetch=FetchType.LAZY)
     @JoinColumn(name="owner")
-    private Owner owner;
+    private Set<Owner> owner;
 
-    public Car(String brand, String model, String color, String registerNumber, int year, int price, Owner owner) {
+    public Car(String brand, String model, String color, String registerNumber, int year, int price, Set<Owner> owner) {
         this.brand = brand;
         this.model = model;
         this.color = color;
@@ -91,11 +92,11 @@ public class Car {
         this.price = price;
     }
     
-    public Owner getOwner() {
+    public Set<Owner> getOwner() {
         return owner;
     }
     
-    public void setOwner(Owner owner) {
+    public void setOwner(Set<Owner> owner) {
         this.owner = owner;
     }
 }
