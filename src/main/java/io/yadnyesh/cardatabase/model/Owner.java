@@ -1,7 +1,9 @@
 package io.yadnyesh.cardatabase.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Owner {
@@ -12,8 +14,9 @@ public class Owner {
 	private String firstname;
 	private String lastName;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-	private List<Car> cars;
+	@ManyToMany(cascade = CascadeType.MERGE)
+	@JoinTable(name="car_owner", joinColumns = {@JoinColumn(name="ownerid")}, inverseJoinColumns = {@JoinColumn(name="id")})
+	private Set<Car> cars = new HashSet<Car>(0);
 	
 	public Owner() {
 	}
@@ -51,11 +54,9 @@ public class Owner {
 		this.ownerid = ownerid;
 	}
 	
-	public List<Car> getCars() {
+	public Set<Car> getCars() {
 		return cars;
 	}
 	
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
-	}
+	public void setCars(Set<Car> cars) {this.cars = cars;}
 }
