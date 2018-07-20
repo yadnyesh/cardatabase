@@ -1,9 +1,6 @@
 package io.yadnyesh.cardatabase.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by yadnyesh on 19/7/18.
@@ -19,6 +16,11 @@ public class Car {
     private String registerNumber;
     private int year;
     private int price;
+    
+    
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="owner")
+    private Owner owner;
 
     public Car(String brand, String model, String color, String registerNumber, int year, int price) {
         this.brand = brand;
@@ -86,5 +88,13 @@ public class Car {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+    
+    public Owner getOwner() {
+        return owner;
+    }
+    
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }
