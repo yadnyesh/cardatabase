@@ -17,7 +17,7 @@ public class Owner {
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name="car_owner", joinColumns = {@JoinColumn(name="ownerid")}, inverseJoinColumns = {@JoinColumn(name="id")})
 	private Set<Car> cars = new HashSet<Car>(0);
-	
+
 	public Owner() {
 	}
 	
@@ -25,13 +25,15 @@ public class Owner {
 		this.firstname = firstname;
 		this.lastName = lastName;
 	}
-	
-	public long getOwnerid() {
-		return ownerid;
+
+	public Owner(String firstname, String lastName, Set<Car> cars) {
+		this.firstname = firstname;
+		this.lastName = lastName;
+		this.cars = cars;
 	}
-	
-	public void setOwnerid(long ownerid) {
-		this.ownerid = ownerid;
+
+	public Long getOwnerid() {
+		return ownerid;
 	}
 	
 	public String getFirstname() {
