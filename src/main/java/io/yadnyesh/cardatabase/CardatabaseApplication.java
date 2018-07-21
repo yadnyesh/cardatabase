@@ -41,10 +41,11 @@ public class CardatabaseApplication {
 			ownerList.add(owner1);
 			ownerList.add(owner2);
 
-			carRepository.save(new Car("Ford", "Mustang", "Red", "ADF-1211", 2017, 29000, ownerList));
-			carRepository.save(new Car("Nissan", "Leaf", "White", "SSJ-3001", 2014, 59000, ownerList));
-			carRepository.save(new Car("Toyota", "Prius", "Silver", "TOT-2002", 2018, 19000, ownerList));
-			carRepository.save(new Car("Maruti", "Dzire", "Blue", "GA0-8936", 2010, 49000, ownerList));
+			carRepository.save(new Car("Ford", "Mustang", "Red", "ADF-1211", 2017, 29000, owner1));
+			carRepository.save(new Car("Nissan", "Leaf", "White", "SSJ-3001", 2014, 59000, owner2));
+			carRepository.save(new Car("Toyota", "Prius", "Silver", "TOT-2002", 2018, 19000, owner1));
+			carRepository.save(new Car("Maruti", "Dzire", "Blue", "GA0-8936", 2010, 49000, owner2
+			));
 		};
 	}
 }
