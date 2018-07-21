@@ -19,8 +19,9 @@ public class Car {
     private int price;
     
     
-    @ManyToMany(fetch=FetchType.LAZY)
-    @JoinColumn(name="owner")
+//    @ManyToMany(fetch=FetchType.LAZY)
+//    @JoinColumn(name="owner")
+    @ManyToMany(mappedBy = "cars")
     private Set<Owner> owner;
 
     public Car(String brand, String model, String color, String registerNumber, int year, int price, Set<Owner> owner) {
