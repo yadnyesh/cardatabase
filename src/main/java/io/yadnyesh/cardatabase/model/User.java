@@ -10,6 +10,6 @@ public class User {
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String username;
+    @Column(name="username",nullable = false, unique = true)
+    private String userName;
 }
