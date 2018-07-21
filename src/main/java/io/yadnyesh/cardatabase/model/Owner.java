@@ -1,5 +1,8 @@
 package io.yadnyesh.cardatabase.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -14,9 +17,14 @@ public class Owner {
 	private String firstname;
 	private String lastName;
 	
-	@ManyToMany(cascade = CascadeType.MERGE)
-	@JoinTable(name="car_owner", joinColumns = {@JoinColumn(name="ownerid")}, inverseJoinColumns = {@JoinColumn(name="id")})
-	private Set<Car> cars = new HashSet<Car>(0);
+//	@ManyToMany(cascade = CascadeType.MERGE)
+//	@JoinTable(name="car_owner", joinColumns = {@JoinColumn(name="ownerid")}, inverseJoinColumns = {@JoinColumn(name="id")})
+//	private Set<Car> cars = new HashSet<Car>(0);
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+	@JsonIgnore
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private List<Car> cars;
 
 	public Owner() {
 	}
@@ -26,7 +34,7 @@ public class Owner {
 		this.lastName = lastName;
 	}
 
-	public Owner(String firstname, String lastName, Set<Car> cars) {
+	public Owner(String firstname, String lastName, List<Car> cars) {
 		this.firstname = firstname;
 		this.lastName = lastName;
 		this.cars = cars;
@@ -56,9 +64,9 @@ public class Owner {
 		this.ownerid = ownerid;
 	}
 	
-	public Set<Car> getCars() {
+	public List<Car> getCars() {
 		return cars;
 	}
 	
-	public void setCars(Set<Car> cars) {this.cars = cars;}
+	public void setCars(List<Car> cars) {this.cars = cars;}
 }
