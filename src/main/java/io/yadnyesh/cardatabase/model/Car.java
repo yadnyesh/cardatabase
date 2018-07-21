@@ -1,5 +1,7 @@
 package io.yadnyesh.cardatabase.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -19,12 +21,17 @@ public class Car {
     private int price;
     
     
-//    @ManyToMany(fetch=FetchType.LAZY)
-//    @JoinColumn(name="owner")
-    @ManyToMany(mappedBy = "cars")
-    private Set<Owner> owner;
+////    @ManyToMany(fetch=FetchType.LAZY)
+////    @JoinColumn(name="owner")
+//    @ManyToMany(mappedBy = "cars")
+//    private Set<Owner> owner;
 
-    public Car(String brand, String model, String color, String registerNumber, int year, int price, Set<Owner> owner) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="owner")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Owner owner;
+
+    public Car(String brand, String model, String color, String registerNumber, int year, int price, Owner owner) {
         this.brand = brand;
         this.model = model;
         this.color = color;
@@ -93,11 +100,11 @@ public class Car {
         this.price = price;
     }
     
-    public Set<Owner> getOwner() {
+    public Owner getOwner() {
         return owner;
     }
     
-    public void setOwner(Set<Owner> owner) {
+    public void setOwner(Owner owner) {
         this.owner = owner;
     }
 }
