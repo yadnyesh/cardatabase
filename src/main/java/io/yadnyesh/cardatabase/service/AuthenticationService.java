@@ -4,6 +4,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.Authentication;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
@@ -23,7 +24,7 @@ public class AuthenticationService {
     }
 
     //Get token from Authorization header
-    static public Authentication getAuthentication() {
-
+    static public Authentication getAuthentication(HttpServletRequest httpServletRequest) {
+        String token = httpServletRequest.getHeader("Authorization");
     }
 }
