@@ -54,6 +54,7 @@ public class CardatabaseApplication {
 			));
 
 			userRepository.save( new User("user", new BCryptPasswordEncoder().encode("password"), "USER"));
+			userRepository.save(new User("admin", new BCryptPasswordEncoder().encode("admin"), "ADMIN"));
 		};
 	}
 }
