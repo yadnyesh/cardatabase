@@ -18,5 +18,8 @@ public class AuthenticationService {
                         .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
                         .signWith(SignatureAlgorithm.ES512, SIGNINGKEY).compact();
         httpServletResponse.addHeader("Authorization", PREFIX + " " + JwtToken);
+        httpServletResponse.addHeader("Access-Control-Expose-Headers", "Authorization");
     }
+
+
 }
