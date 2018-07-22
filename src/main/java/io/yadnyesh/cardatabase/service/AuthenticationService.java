@@ -10,6 +10,5 @@ public class AuthenticationService {
 
     //Add Token to the Authorization Header
     static public void addToken(HttpServletResponse httpServletResponse, String userName) {
-
     }
 }
