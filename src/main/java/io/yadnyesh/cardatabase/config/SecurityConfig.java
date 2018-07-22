@@ -1,5 +1,6 @@
 package io.yadnyesh.cardatabase.config;
 
+import io.yadnyesh.cardatabase.repository.UserRepository;
 import io.yadnyesh.cardatabase.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     UserDetailsServiceImpl userDetailsService;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -35,4 +39,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
+
 }
