@@ -2,6 +2,7 @@ package io.yadnyesh.cardatabase.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,10 @@ public class AuthenticationService {
                         .parseClaimsJws(token.replace(PREFIX, ""))
                         .getBody()
                         .getSubject();
+            if (user != null)
+                return new UsernamePasswordAuthenticationToken(user, null, emptyList());
         }
+
+        return null;
     }
 }
