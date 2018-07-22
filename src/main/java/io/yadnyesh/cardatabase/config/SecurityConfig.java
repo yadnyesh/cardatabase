@@ -17,21 +17,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        super.configure(http);
-//    }
-
-//    @Override
-//    public UserDetailsService userDetailsServiceBean() throws Exception {
-//        UserDetails userDetails = User.withDefaultPasswordEncoder()
-//                                        .username("user")
-//                                        .password("password")
-//                                        .roles("USER")
-//                                        .build();
-//        return new InMemoryUserDetailsManager(userDetails);
-//    }
-
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
