@@ -21,5 +21,6 @@ public class AuthenticationService {
         httpServletResponse.addHeader("Access-Control-Expose-Headers", "Authorization");
     }
 
+    //Get token from Authorization header
 
 }
