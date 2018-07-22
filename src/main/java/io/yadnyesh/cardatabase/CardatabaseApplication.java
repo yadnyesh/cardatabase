@@ -2,6 +2,7 @@ package io.yadnyesh.cardatabase;
 
 import io.yadnyesh.cardatabase.model.Car;
 import io.yadnyesh.cardatabase.model.Owner;
+import io.yadnyesh.cardatabase.model.User;
 import io.yadnyesh.cardatabase.repository.CarRepository;
 import io.yadnyesh.cardatabase.repository.OwnerRepository;
 import io.yadnyesh.cardatabase.repository.UserRepository;
@@ -12,6 +13,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -50,6 +52,8 @@ public class CardatabaseApplication {
 			carRepository.save(new Car("Toyota", "Prius", "Silver", "TOT-2002", 2018, 19000, owner1));
 			carRepository.save(new Car("Maruti", "Dzire", "Blue", "GA0-8936", 2010, 49000, owner2
 			));
+
+			userRepository.save( new User("user", new BCryptPasswordEncoder().encode("password"), "USER"));
 		};
 	}
 }
