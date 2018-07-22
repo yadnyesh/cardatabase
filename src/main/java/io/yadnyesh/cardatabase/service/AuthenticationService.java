@@ -2,6 +2,7 @@ package io.yadnyesh.cardatabase.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.Authentication;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
@@ -22,5 +23,7 @@ public class AuthenticationService {
     }
 
     //Get token from Authorization header
+    static public Authentication getAuthentication() {
 
+    }
 }
