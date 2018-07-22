@@ -26,5 +26,8 @@ public class AuthenticationService {
     //Get token from Authorization header
     static public Authentication getAuthentication(HttpServletRequest httpServletRequest) {
         String token = httpServletRequest.getHeader("Authorization");
+        if (token != null){
+
+        }
     }
 }
