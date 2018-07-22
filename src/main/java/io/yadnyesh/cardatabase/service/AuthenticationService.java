@@ -17,5 +17,6 @@ public class AuthenticationService {
         String JwtToken = Jwts.builder().setSubject(userName)
                         .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
                         .signWith(SignatureAlgorithm.ES512, SIGNINGKEY).compact();
+        
     }
 }
