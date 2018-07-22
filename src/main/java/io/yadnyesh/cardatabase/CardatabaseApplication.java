@@ -4,6 +4,7 @@ import io.yadnyesh.cardatabase.model.Car;
 import io.yadnyesh.cardatabase.model.Owner;
 import io.yadnyesh.cardatabase.repository.CarRepository;
 import io.yadnyesh.cardatabase.repository.OwnerRepository;
+import io.yadnyesh.cardatabase.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class CardatabaseApplication {
 
 	@Autowired
 	OwnerRepository ownerRepository;
+
+	@Autowired
+	UserRepository userRepository;
 	
 	private static final Logger logger = LoggerFactory.getLogger(CardatabaseApplication.class);
 	public static void main(String[] args) {
