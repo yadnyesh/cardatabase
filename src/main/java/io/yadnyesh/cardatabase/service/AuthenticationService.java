@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import static java.util.Collections.emptyList;
 
 public class AuthenticationService {
 
