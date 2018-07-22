@@ -18,13 +18,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         super.configure(http);
     }
 
-    @Override
-    public UserDetailsService userDetailsServiceBean() throws Exception {
-        UserDetails userDetails = User.withDefaultPasswordEncoder()
-                                        .username("user")
-                                        .password("password")
-                                        .roles("USER")
-                                        .build();
-        return new InMemoryUserDetailsManager(userDetails);
-    }
+//    @Override
+//    public UserDetailsService userDetailsServiceBean() throws Exception {
+//        UserDetails userDetails = User.withDefaultPasswordEncoder()
+//                                        .username("user")
+//                                        .password("password")
+//                                        .roles("USER")
+//                                        .build();
+//        return new InMemoryUserDetailsManager(userDetails);
+//    }
 }
