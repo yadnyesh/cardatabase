@@ -13,6 +13,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
@@ -27,4 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //                                        .build();
 //        return new InMemoryUserDetailsManager(userDetails);
 //    }
+
+
 }
