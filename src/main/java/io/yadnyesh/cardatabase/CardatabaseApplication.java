@@ -53,8 +53,8 @@ public class CardatabaseApplication {
 			carRepository.save(new Car("Maruti", "Dzire", "Blue", "GA0-8936", 2010, 49000, owner2
 			));
 
-//			userRepository.save(new User("user", new BCryptPasswordEncoder().encode("user"), "USER"));
-//			userRepository.save(new User("admin", new BCryptPasswordEncoder().encode("admin"), "ADMIN"));
+			userRepository.save(new User("user", new BCryptPasswordEncoder().encode("user"), "USER"));
+			userRepository.save(new User("admin", new BCryptPasswordEncoder().encode("admin"), "ADMIN"));
 		};
 	}
 }
