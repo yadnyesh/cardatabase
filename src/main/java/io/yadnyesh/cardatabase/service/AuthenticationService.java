@@ -20,7 +20,7 @@ public class AuthenticationService {
     static public void addToken(HttpServletResponse httpServletResponse, String userName) {
         String JwtToken = Jwts.builder().setSubject(userName)
                         .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
-                        .signWith(SignatureAlgorithm.ES512, SIGNINGKEY).compact();
+                        .signWith(SignatureAlgorithm.HS512, SIGNINGKEY).compact();
         httpServletResponse.addHeader("Authorization", PREFIX + " " + JwtToken);
         httpServletResponse.addHeader("Access-Control-Expose-Headers", "Authorization");
     }
