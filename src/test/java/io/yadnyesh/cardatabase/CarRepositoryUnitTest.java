@@ -1,5 +1,6 @@
 package io.yadnyesh.cardatabase;
 
+import io.yadnyesh.cardatabase.repository.CarRepository;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -12,4 +13,7 @@ public class CarRepositoryUnitTest {
 
 	@Autowired
 	TestEntityManager entityManager;
+	
+	@Autowired
+	CarRepository carRepository;
 }
