@@ -1,5 +1,6 @@
 package io.yadnyesh.cardatabase;
 
+import io.yadnyesh.cardatabase.model.Car;
 import io.yadnyesh.cardatabase.repository.CarRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,6 @@ public class CarRepositoryUnitTest {
 	
 	@Test
 	public void saveCar(){
-	
+		Car car = new Car("Tesla", "Model X", "White", "ABC-1234", 2017, 86400);
 	}
 }
