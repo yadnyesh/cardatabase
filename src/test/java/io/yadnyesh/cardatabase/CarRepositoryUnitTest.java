@@ -27,7 +27,7 @@ public class CarRepositoryUnitTest {
 		Assertions.assertThat(car.getId()).isNotNull();
 	}
 	
-	
+	@Test
 	public void testDeleteCar(){
 	
 	}
