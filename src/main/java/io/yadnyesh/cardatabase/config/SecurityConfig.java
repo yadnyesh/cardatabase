@@ -1,5 +1,6 @@
 package io.yadnyesh.cardatabase.config;
 
+import io.yadnyesh.cardatabase.AuthenticationFilter;
 import io.yadnyesh.cardatabase.LoginFilter;
 import io.yadnyesh.cardatabase.repository.UserRepository;
 import io.yadnyesh.cardatabase.service.UserDetailsServiceImpl;
@@ -32,14 +33,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
     
-    @Override
+	@Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().authorizeRequests()
+        http.csrf().disable().cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new LoginFilter("/login", authenticationManager()),
-                                                    UsernamePasswordAuthenticationFilter.class);
+                                                    UsernamePasswordAuthenticationFilter.class)
+				.addFilterBefore((new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class));
     }
     
     @Bean
