@@ -2,6 +2,7 @@ package io.yadnyesh.cardatabase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.yadnyesh.cardatabase.model.AccountCredentials;
+import io.yadnyesh.cardatabase.service.AuthenticationService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -39,6 +40,6 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 	public void successfulAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
 										 FilterChain filterChain, Authentication authentication) {
 		
-	
+		AuthenticationService.addToken(httpServletResponse, authentication.getName());
 	}
 }
