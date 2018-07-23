@@ -16,4 +16,8 @@ public class CarRepositoryUnitTest {
 	
 	@Autowired
 	CarRepository carRepository;
+	
+	public void saveCar(){
+	
+	}
 }
