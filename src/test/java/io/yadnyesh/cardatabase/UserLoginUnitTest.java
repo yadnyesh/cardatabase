@@ -9,6 +9,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,6 +23,8 @@ public class UserLoginUnitTest {
 
 	@Test
 	public void testAuthentication() throws Exception{
-		this.mockMvc.perform(post("/login"));
+		this.mockMvc.perform(post("/login")
+				.content("{\"username\":\"admin\", \"password\":\"admin\"}"))
+				.andDo(print()).andExpect(status().isOk());
 	}
 }
