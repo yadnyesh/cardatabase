@@ -1,4 +1,7 @@
 package io.yadnyesh.cardatabase;
 
-public class LoginFilter {
+import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+
+public class LoginFilter extends AbstractAuthenticationProcessingFilter {
+
 }
