@@ -24,7 +24,7 @@ public class UserLoginUnitTest {
 	@Test
 	public void testAuthentication() throws Exception{
 		this.mockMvc.perform(post("/login")
-				.content("{\"username\":\"admin\", \"password\":\"admin\"}"))
+				.content("{\"userName\":\"admin\", \"password\":\"admin\"}"))
 				.andDo(print()).andExpect(status().isOk());
 	}
 }
