@@ -2,6 +2,7 @@ package io.yadnyesh.cardatabase;
 
 import io.yadnyesh.cardatabase.model.Car;
 import io.yadnyesh.cardatabase.repository.CarRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,7 @@ public class CarRepositoryUnitTest {
 	@Test
 	public void saveCar(){
 		Car car = new Car("Tesla", "Model X", "White", "ABC-1234", 2017, 86400);
+		entityManager.persistAndFlush(car);
+		Assertions.assertThat(car.getId()).isNotNull();
 	}
 }
