@@ -21,9 +21,14 @@ public class CarRepositoryUnitTest {
 	CarRepository carRepository;
 	
 	@Test
-	public void saveCar(){
+	public void testSaveCar(){
 		Car car = new Car("Tesla", "Model X", "White", "ABC-1234", 2017, 86400);
 		entityManager.persistAndFlush(car);
 		Assertions.assertThat(car.getId()).isNotNull();
+	}
+	
+	
+	public void testDeleteCar(){
+	
 	}
 }
