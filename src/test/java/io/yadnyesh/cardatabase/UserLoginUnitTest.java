@@ -14,4 +14,8 @@ public class UserLoginUnitTest {
 	
 	@Autowired
 	private MockMvc mockMvc;
+	
+	public void testAuthentication() throws Exception{
+	
+	}
 }
