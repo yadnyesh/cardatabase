@@ -31,5 +31,7 @@ public class CarRepositoryUnitTest {
 	public void testDeleteCar(){
 		entityManager.persistAndFlush(new Car("Tesla", "Model X", "White", "ABC-1234", 2017, 86400));
 		entityManager.persistAndFlush(new Car("Toyota", "Swift Dzire", "Blue", "GAJ-9856", 2011, 16400));
+		carRepository.deleteAll();
+		
 	}
 }
