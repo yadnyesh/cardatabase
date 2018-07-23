@@ -1,5 +1,7 @@
 package io.yadnyesh.cardatabase;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.yadnyesh.cardatabase.model.AccountCredentials;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+
 public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 	
 	public LoginFilter(String url, AuthenticationManager authenticationManager) {
@@ -19,7 +23,9 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
 	}
 	
 	@Override
-	public Authentication attemptAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws AuthenticationException, IOException, ServletException {
-		return null;
+	public Authentication attemptAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
+			throws AuthenticationException, IOException, ServletException {
+		AccountCredentials accountCredentials = new ObjectMapper()
+												.readValue(httpServletRequest.getInputStream(), AccountCredentials.class);
 	}
 }
